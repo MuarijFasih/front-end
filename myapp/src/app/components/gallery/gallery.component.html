@@ -1,0 +1,15 @@
+<div class="p-4 bg-neutral-400 flex items-center justify-center h-svh w-svw">
+
+    <div class="p-4 w-[80vw] h-[80vh] overflow-auto">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-auto">
+            @for (photo of photos | async; track photo.id) {
+            <div (click)="viewImageDetails(photo)">
+                <img class="h-auto max-w-full rounded-lg" [title]="photo.title" [ngSrc]="photo.thumbnailUrl" alt=""
+                    width="400" height="400" [priority]="photo.id <= 4">
+            </div>
+            }
+
+        </div>
+    </div>
+</div>
