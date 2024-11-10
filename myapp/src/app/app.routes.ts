@@ -4,12 +4,16 @@ import { PhotoDetailComponent } from './components/photo-detail/photo-detail.com
 
 export const routes: Routes = [
     {
-        path: '',
+        path: 'gallery',
         component: GalleryComponent,
-        pathMatch: 'full'
     },
     {
         path: 'photo/:id',
         component: PhotoDetailComponent,
+    },
+    {
+        path: '',
+        redirectTo: 'gallery',
+        pathMatch: 'full'
     }
 ];

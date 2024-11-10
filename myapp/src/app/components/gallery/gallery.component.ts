@@ -20,22 +20,19 @@ export class GalleryComponent implements OnInit {
 
   private readonly platform = inject(PLATFORM_ID);
   constructor() {
-    this.photoService.loadPhotos()
     if (isPlatformBrowser(this.platform)) {
       console.warn("browser");
       this.isBrowser = isPlatformBrowser(this.platform)
-      // Safe to use document, window, localStorage, etc. :-)
     }
   }
 
   ngOnInit(): void {
-    // this.photoService.loadPhotos();
+    this.photoService.loadPhotos();
   }
 
   viewImageDetails(photo: Photo): void {
-    console.log('photo...', photo)
     this.photoService.selectPhoto(photo)
-    this.router.navigate(['/photo', photo.id]); // Passing image data through state
+    this.router.navigate(['/photo', photo.id]); 
   }
 
 }
